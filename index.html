@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منطقة العدسة - Lens Area | التصوير الجوي والتايم لابس</title>
+    <meta name="description" content="رواد التصوير الجوي والتايم لابس في المملكة. نقدم حلولاً بصرية ذكية لمراقبة المشاريع وتوثيق الإنجازات بأحدث تقنيات Enlaps والذكاء الاصطناعي.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'oklch(0.10 0.01 260)',
+                        foreground: 'oklch(0.98 0.00 0)',
+                        card: 'oklch(0.15 0.02 260)',
+                        'card-foreground': 'oklch(0.98 0.00 0)',
+                        primary: 'oklch(0.60 0.18 250)',
+                        'primary-foreground': 'oklch(0.98 0.00 0)',
+                        secondary: 'oklch(0.25 0.05 250)',
+                        'secondary-foreground': 'oklch(0.90 0.05 250)',
+                        muted: 'oklch(0.20 0.02 260)',
+                        'muted-foreground': 'oklch(0.70 0.02 260)',
+                        accent: 'oklch(0.75 0.15 200)',
+                        'accent-foreground': 'oklch(0.10 0.01 260)',
+                        border: 'oklch(0.25 0.02 260)',
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                        mono: ['Orbitron', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen bg-background text-foreground antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur-md">
+        <div class="container mx-auto px-4 lg:px-8 max-w-7xl flex items-center justify-between h-20">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="relative w-12 h-12 overflow-hidden rounded-full border border-primary/50 group-hover:border-primary transition-colors duration-300">
+                    <img src="assets/images/logo.png" alt="منطقة العدسة" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-wide text-white group-hover:text-primary transition-colors duration-300">منطقة العدسة</span>
+                    <span class="text-[10px] text-muted-foreground font-mono tracking-widest uppercase">Lens Area</span>
+                </div>
+            </a>
+
+            <!-- Navigation - Desktop -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#home" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">الرئيسية</a>
+                <a href="#services" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">خدماتنا</a>
+                <a href="#enlaps" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">نظام Enlaps</a>
+                <a href="#contact" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">تواصل معنا</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <button class="bg-primary hover:bg-primary/90 text-white font-medium rounded-full px-6 py-2.5 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.7)] transition-all duration-300">
+                    اطلب عرض سعر
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-card border-t border-white/10">
+            <nav class="container mx-auto px-4 py-4 flex flex-col gap-4">
+                <a href="#home" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2">الرئيسية</a>
+                <a href="#services" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2">خدماتنا</a>
+                <a href="#enlaps" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2">نظام Enlaps</a>
+                <a href="#contact" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2">تواصل معنا</a>
+                <button class="bg-primary hover:bg-primary/90 text-white font-medium rounded-full px-6 py-2.5 mt-2">
+                    اطلب عرض سعر
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background z-10"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1)_0%,rgba(0,0,0,0)_70%)] z-10"></div>
+                <div class="w-full h-full bg-slate-900 relative">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-60"></div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="container mx-auto px-4 lg:px-8 max-w-7xl relative z-20 text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6 animate-fade-in-up">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-xs font-medium text-white/80">متاح الآن للمشاريع الجديدة</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight leading-relaxed animate-fade-in-up animation-delay-200">
+                    <span class="block text-white">نوثق اللحظة..</span>
+                    <span class="block text-primary text-glow mt-6">ونصنع التاريخ</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up animation-delay-400">
+                    رواد التصوير الجوي والتايم لابس في المملكة. نقدم حلولاً بصرية ذكية لمراقبة المشاريع وتوثيق الإنجازات بأحدث تقنيات Enlaps والذكاء الاصطناعي.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-600">
+                    <button class="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-14 text-lg shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] transition-all w-full sm:w-auto group flex items-center justify-center gap-2">
+                        استكشف خدماتنا
+                        <i data-lucide="arrow-left" class="w-5 h-5 group-hover:-translate-x-1 transition-transform"></i>
+                    </button>
+                    <button onclick="window.open('https://drive.google.com/drive/folders/1pAdyf7I1ZYSUYlZVlvClvTkFdwFRARhT', '_blank', 'noopener,noreferrer')" class="border border-white/20 bg-white/5 hover:bg-white/10 text-white rounded-full px-8 h-14 text-lg backdrop-blur-sm w-full sm:w-auto group flex items-center justify-center gap-2">
+                        <i data-lucide="play" class="w-5 h-5 fill-white group-hover:scale-110 transition-transform"></i>
+                        شاهد أعمالنا
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-white/50">
+                <div class="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
+                    <div class="w-1 h-2 bg-white/50 rounded-full"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-background relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+
+            <div class="container mx-auto px-4 lg:px-8 max-w-7xl">
+                <!-- About Us Section -->
+                <div class="mb-20">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">من <span class="text-primary">نحن</span></h2>
+                        <p class="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
+                            منطقة العدسة هي شركة رائدة في مجال التصوير الجوي والتايم لابس في المملكة العربية السعودية. نجمع بين الخبرة الفنية والتقنيات المتطورة لتقديم حلول بصرية مبتكرة تساعد عملاءنا على توثيق مشاريعهم وإنجازاتهم بأعلى معايير الجودة والاحترافية.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Vision -->
+                        <div class="text-center p-6 bg-card/50 rounded-xl border border-white/5 hover:border-primary/30 transition-all duration-300">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                                <i data-lucide="eye" class="w-8 h-8 text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">رؤيتنا</h3>
+                            <p class="text-muted-foreground text-sm leading-relaxed">
+                                أن نكون الخيار الأول في المملكة للتوثيق البصري الاحترافي، ونساهم في حفظ التاريخ البصري للمشاريع الكبرى.
+                            </p>
+                        </div>
+
+                        <!-- Mission -->
+                        <div class="text-center p-6 bg-card/50 rounded-xl border border-white/5 hover:border-primary/30 transition-all duration-300">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20">
+                                <i data-lucide="target" class="w-8 h-8 text-accent"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">رسالتنا</h3>
+                            <p class="text-muted-foreground text-sm leading-relaxed">
+                                تقديم خدمات تصوير متميزة تجمع بين الإبداع والتكنولوجيا، مع الالتزام بأعلى معايير الجودة ورضا العملاء.
+                            </p>
+                        </div>
+
+                        <!-- Values -->
+                        <div class="text-center p-6 bg-card/50 rounded-xl border border-white/5 hover:border-primary/30 transition-all duration-300">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20">
+                                <i data-lucide="heart" class="w-8 h-8 text-purple-500"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">قيمنا</h3>
+                            <p class="text-muted-foreground text-sm leading-relaxed">
+                                الاحترافية، الابتكار، الجودة، والالتزام بتقديم أفضل تجربة لعملائنا في كل مشروع.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Header -->
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">خدماتنا <span class="text-primary">الاحترافية</span></h2>
+                    <p class="text-muted-foreground max-w-2xl mx-auto">نقدم باقة متكاملة من الحلول البصرية التي تجمع بين الفن والتكنولوجيا لتوثيق مشاريعكم بأعلى معايير الجودة.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Service 1: Drone -->
+                    <div class="group relative bg-card rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+                        <div class="h-48 overflow-hidden relative">
+                            <div class="absolute inset-0 bg-gradient-to-t from-card to-transparent z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1506947411487-a56738267384?q=80&w=2070&auto=format&fit=crop" alt="Drone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center text-primary border border-primary/30">
+                                <i data-lucide="camera" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-20 -mt-10">
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">تصوير الدرون</h3>
+                            <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+                                لقطات جوية بدقة 6K توفر منظوراً شاملاً للمشاريع والفعاليات، مع إمكانية البث المباشر والمسح الجوي بدقة متناهية.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-primary text-sm font-medium hover:underline gap-1">
+                                المزيد من التفاصيل
+                                <i data-lucide="arrow-left" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Timelapse -->
+                    <div class="group relative bg-card rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+                        <div class="h-48 overflow-hidden relative">
+                            <div class="absolute inset-0 bg-gradient-to-t from-card to-transparent z-10"></div>
+                            <img src="assets/images/timelapse-construction.jpg" alt="Timelapse Construction" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center text-primary border border-primary/30">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-20 -mt-10">
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">التايم لابس</h3>
+                            <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+                                توثيق طويل الأمد لمراحل البناء والتطور العمراني بكاميرات ذكية تعمل بالطاقة الشمسية ومقاومة للظروف الجوية القاسية.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-primary text-sm font-medium hover:underline gap-1">
+                                المزيد من التفاصيل
+                                <i data-lucide="arrow-left" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Analytics -->
+                    <div class="group relative bg-card rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+                        <div class="h-48 overflow-hidden relative">
+                            <div class="absolute inset-0 bg-gradient-to-t from-card to-transparent z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Analytics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center text-primary border border-primary/30">
+                                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-20 -mt-10">
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">التحليل الذكي</h3>
+                            <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+                                تقارير مدعومة بالذكاء الاصطناعي لمراقبة السلامة، تتبع التقدم، وتحليل البيانات الميدانية بدقة متناهية لاتخاذ قرارات أفضل.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-primary text-sm font-medium hover:underline gap-1">
+                                المزيد من التفاصيل
+                                <i data-lucide="arrow-left" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enlaps Section -->
+        <section id="enlaps" class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-secondary/20"></div>
+            <div class="absolute -right-20 top-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+            <div class="absolute -left-20 bottom-20 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+
+            <div class="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2">
+                        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop" alt="Enlaps System" class="w-full h-auto">
+
+                            <!-- Floating Stats Cards -->
+                            <div class="absolute bottom-6 right-6 bg-black/60 backdrop-blur-md border border-white/10 p-4 rounded-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-500">
+                                        <i data-lucide="activity" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-muted-foreground">مراقبة مستمرة</div>
+                                        <div class="text-lg font-bold text-white font-mono">24/7</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="absolute top-6 left-6 bg-black/60 backdrop-blur-md border border-white/10 p-4 rounded-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500">
+                                        <div class="text-xs font-bold">4K</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-muted-foreground">دقة عالية</div>
+                                        <div class="text-lg font-bold text-white font-mono">6K Ready</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:w-1/2">
+                        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+                            قوة <span class="text-accent">الذكاء الاصطناعي</span><br>في موقعك
+                        </h2>
+                        <p class="text-muted-foreground text-lg mb-8 leading-relaxed">
+                            نستخدم نظام Enlaps Tikee المتطور ليس فقط للتصوير، بل لتحويل الصور إلى بيانات قيمة تساعدك في اتخاذ القرارات الصحيحة في الوقت المناسب.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0 border border-primary/20">
+                                    <i data-lucide="shield" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold mb-1">مراقبة السلامة (Safety)</h4>
+                                    <p class="text-sm text-muted-foreground">كشف تلقائي لمعدات الوقاية (PPE) لضمان أمان الموقع.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent shrink-0 border border-accent/20">
+                                    <i data-lucide="activity" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold mb-1">خرائط حرارية</h4>
+                                    <p class="text-sm text-muted-foreground">تحليل مناطق النشاط وكثافة الحركة لتحسين الكفاءة.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 shrink-0 border border-purple-500/20">
+                                    <i data-lucide="video" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold mb-1">تقارير فيديو آلية</h4>
+                                    <p class="text-sm text-muted-foreground">ملخصات أسبوعية وشهرية جاهزة للعرض فوراً.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-500 shrink-0 border border-pink-500/20">
+                                    <i data-lucide="camera" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold mb-1">دقة بانورامية 6K</h4>
+                                    <p class="text-sm text-muted-foreground">صور فائقة الوضوح تظهر أدق التفاصيل.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="py-24 relative">
+            <div class="absolute inset-0 bg-primary/5"></div>
+            <div class="container mx-auto px-4 lg:px-8 max-w-7xl text-center relative z-10">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">جاهز لتوثيق مشروعك القادم؟</h2>
+                <p class="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+                    تواصل معنا اليوم للحصول على استشارة مجانية وعرض سعر مخصص لاحتياجات مشروعك.
+                </p>
+                <button class="bg-white text-black hover:bg-white/90 rounded-full px-10 h-14 text-lg font-bold shadow-lg hover:scale-105 transition-transform">
+                    تواصل معنا الآن
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card border-t border-white/5 pt-16 pb-8">
+        <div class="container mx-auto px-4 lg:px-8 max-w-7xl">
+
+            <!-- Partners Section -->
+            <div class="mb-16">
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">
+                        شركاؤنا <span class="text-primary">في النجاح</span>
+                    </h3>
+                    <p class="text-muted-foreground text-sm max-w-2xl mx-auto">
+                        نفخر بشراكتنا مع أفضل الشركات والمؤسسات في المملكة
+                    </p>
+                </div>
+
+                <!-- Partners Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+                    <!-- Partner 1 -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center p-6 bg-white/5 rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                        <img src="assets/images/امانة منطقة الرياض.png" alt="أمانة منطقة الرياض" class="w-full h-16 object-contain grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110 mb-3">
+                        <h4 class="text-xs font-medium text-muted-foreground group-hover:text-white transition-colors text-center">أمانة منطقة الرياض</h4>
+                    </a>
+
+                    <!-- Partner 2 -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center p-6 bg-white/5 rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                        <img src="assets/images/امانة منطقة الاحساء.png" alt="أمانة منطقة الأحساء" class="w-full h-16 object-contain grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110 mb-3">
+                        <h4 class="text-xs font-medium text-muted-foreground group-hover:text-white transition-colors text-center">أمانة منطقة الأحساء</h4>
+                    </a>
+
+                    <!-- Partner 3 -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center p-6 bg-white/5 rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                        <img src="assets/images/امانة منطقة بقيق.png" alt="أمانة منطقة بقيق" class="w-full h-16 object-contain grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110 mb-3">
+                        <h4 class="text-xs font-medium text-muted-foreground group-hover:text-white transition-colors text-center">أمانة منطقة بقيق</h4>
+                    </a>
+
+                    <!-- Partner 4 -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center p-6 bg-white/5 rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                        <img src="assets/images/شركة شبه الجزيرة.png" alt="شركة شبه الجزيرة" class="w-full h-16 object-contain grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110 mb-3">
+                        <h4 class="text-xs font-medium text-muted-foreground group-hover:text-white transition-colors text-center">شركة شبه الجزيرة</h4>
+                    </a>
+
+                    <!-- Partner 5 -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center p-6 bg-white/5 rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                        <img src="assets/images/جامعة الجوف.png" alt="جامعة الجوف" class="w-full h-16 object-contain grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110 mb-3">
+                        <h4 class="text-xs font-medium text-muted-foreground group-hover:text-white transition-colors text-center">جامعة الجوف</h4>
+                    </a>
+
+                    <!-- Partner 6 -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center p-6 bg-white/5 rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                        <img src="assets/images/نادي الفتح.png" alt="نادي الفتح" class="w-full h-16 object-contain grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110 mb-3">
+                        <h4 class="text-xs font-medium text-muted-foreground group-hover:text-white transition-colors text-center">نادي الفتح</h4>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-white/5 mb-12"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30">
+                            <img src="assets/images/logo.png" alt="Logo" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-xl font-bold text-white">منطقة العدسة</span>
+                    </div>
+                    <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                        شريككم الاستراتيجي في التوثيق البصري. نساعدك في رؤية مشروعك من زاوية مختلفة، وتخليد إنجازاتك بأعلى جودة ممكنة.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-all duration-300">
+                            <i data-lucide="twitter" class="w-[18px] h-[18px]"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-all duration-300">
+                            <i data-lucide="linkedin" class="w-[18px] h-[18px]"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-all duration-300">
+                            <i data-lucide="instagram" class="w-[18px] h-[18px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:right-0 after:w-12 after:h-1 after:bg-primary after:rounded-full">روابط سريعة</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-muted-foreground hover:text-primary transition-colors text-sm">الرئيسية</a></li>
+                        <li><a href="#services" class="text-muted-foreground hover:text-primary transition-colors text-sm">خدماتنا</a></li>
+                        <li><a href="#enlaps" class="text-muted-foreground hover:text-primary transition-colors text-sm">نظام Enlaps</a></li>
+                        <li><a href="#" class="text-muted-foreground hover:text-primary transition-colors text-sm">معرض الأعمال</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-white font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:right-0 after:w-12 after:h-1 after:bg-primary after:rounded-full">تواصل معنا</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-primary mt-1 shrink-0 w-[18px] h-[18px]"></i>
+                            <span class="text-muted-foreground text-sm">الرياض، المملكة العربية السعودية</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="text-primary shrink-0 w-[18px] h-[18px]"></i>
+                            <a href="mailto:LensArea@outlook.com" class="text-muted-foreground hover:text-white transition-colors text-sm font-sans font-medium" dir="ltr">LensArea@outlook.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="text-primary shrink-0 w-[18px] h-[18px]"></i>
+                            <a href="tel:0560697757" class="text-muted-foreground hover:text-white transition-colors text-sm font-sans font-medium" dir="ltr">0560697757</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-muted-foreground">© 2026 منطقة العدسة. جميع الحقوق محفوظة.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-xs text-muted-foreground hover:text-white transition-colors">سياسة الخصوصية</a>
+                    <a href="#" class="text-xs text-muted-foreground hover:text-white transition-colors">الشروط والأحكام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
