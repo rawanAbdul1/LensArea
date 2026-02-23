@@ -316,6 +316,14 @@ img {
     white-space: nowrap;
     border-width: 0;
 }
+/* جعل Footer يمتد بعرض الشاشة كاملة */
+footer {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+    left: 50%;
+    right: 50%;
+}
 
 
 /* Reduced Motion */
