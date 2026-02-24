@@ -15,6 +15,8 @@ body {
     color: oklch(0.98 0.00 0);
     direction: rtl;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -317,7 +319,10 @@ img {
     border-width: 0;
 }
 
-
+footer {
+    width: 100%;
+    background-color: #000; /* أو اللون الأسود المطلوب */
+}
 
 
 
