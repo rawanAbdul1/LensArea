@@ -96,7 +96,10 @@
                 <a href="#services" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2">خدماتنا</a>
                 <a href="#enlaps" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2">نظام Enlaps</a>
                 <a href="#contact" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2">تواصل معنا</a>
-                <button class="bg-primary hover:bg-primary/90 text-white font-medium rounded-full px-6 py-2.5 mt-2" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">
+               <!-- <button class="bg-primary hover:bg-primary/90 text-white font-medium rounded-full px-6 py-2.5 mt-2" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">
+                    اطلب عرض سعر
+                </button>-->
+                 <button class="bg-primary hover:bg-primary/90 text-white font-medium rounded-full px-6 py-2.5 mt-2" id="contact">
                     اطلب عرض سعر
                 </button>
 
@@ -379,9 +382,13 @@
                 <p class="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
                     تواصل معنا اليوم للحصول على استشارة مجانية وعرض سعر مخصص لاحتياجات مشروعك.
                 </p>
-                <button class="bg-white text-black hover:bg-white/90 rounded-full px-10 h-14 text-lg font-bold shadow-lg hover:scale-105 transition-transform" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">
+                <!-- <button class="bg-white text-black hover:bg-white/90 rounded-full px-10 h-14 text-lg font-bold shadow-lg hover:scale-105 transition-transform" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">
+                    تواصل معنا الآن
+                </button> -->
+                <button class="bg-white text-black hover:bg-white/90 rounded-full px-10 h-14 text-lg font-bold shadow-lg hover:scale-105 transition-transform" id="contact">
                     تواصل معنا الآن
                 </button>
+                
             </div>
         </section>
 
@@ -483,7 +490,7 @@
                 </div>
 
                 <!-- Contact Info -->
-               <div class="col-span-1 md:col-span-2" id="contact-section">
+                <!--<div class="col-span-1 md:col-span-2" id="contact-section">
                     <h3 class="text-white font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:right-0 after:w-12 after:h-1 after:bg-primary after:rounded-full">تواصل معنا</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
@@ -499,9 +506,9 @@
                             <a href="tel:0560697757" class="text-muted-foreground hover:text-white transition-colors text-sm font-sans font-medium" dir="ltr">0560697757</a>
                         </li>
                     </ul>
-                </div>
+                </div>-->
 
-                <!-- <div class="col-span-1 md:col-span-2" id="contact-section">
+                <div class="col-span-1 md:col-span-2" id="contact">
                     <h3 class="text-white font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:right-0 after:w-12 after:h-1 after:bg-primary after:rounded-full">تواصل معنا</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
@@ -517,7 +524,7 @@
                             <a href="tel:0560697757" class="text-muted-foreground hover:text-white transition-colors text-sm font-sans font-medium" dir="ltr">0560697757</a>
                         </li>
                     </ul>
-                </div>-->
+                </div>
             </div>
 
         </section>
